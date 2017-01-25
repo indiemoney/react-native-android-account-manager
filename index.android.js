@@ -1,3 +1,2 @@
 var { NativeModules } = require('react-native');
-module.exports = NativeModules.AccountManagerAndroid
-;
+module.exports = NativeModules.AccountManagerAndroid;

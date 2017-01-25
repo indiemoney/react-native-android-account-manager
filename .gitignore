@@ -1,8 +1,11 @@
 # Android/IJ
 .DS_Store
+.idea/*
 .idea/workspace.xml
 .idea/libraries
 .gradle
+gradle/
+gradlew*
 local.properties
 *.iml
 build

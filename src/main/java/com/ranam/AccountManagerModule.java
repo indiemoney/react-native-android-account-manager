@@ -1,26 +1,24 @@
-package com.weihan.react;
-import com.google.gson.Gson;
+package com.ranam;
 
-import android.app.Activity;
-import android.content.Context;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.util.Patterns;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.Promise;
 
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
 public class AccountManagerModule extends ReactContextBaseJavaModule {
-  Activity mActivity = null;
   AccountManager mAccountManager = null;
 
 
-  public AccountManagerModule(ReactApplicationContext reactApplicationContext, Activity activity) {
+  public AccountManagerModule(ReactApplicationContext reactApplicationContext) {
     super(reactApplicationContext);
     mAccountManager = AccountManager.get(reactApplicationContext.getApplicationContext());
-    mActivity = activity;
   }
 
   @Override
@@ -29,13 +27,15 @@ public class AccountManagerModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void getAccounts(Promise promise){
+  public ArrayList<String> getEmails(Promise promise) {
+    Pattern emailPattern = Patterns.EMAIL_ADDRESS;
     Account[] accounts = mAccountManager.getAccounts();
-    String[] strAccounts = new String[accounts.length];
-    Gson gson = new Gson();
-    for(int i=0; i< accounts.length; i++){
-        strAccounts[i] = gson.toJson(accounts[i]);
+    ArrayList<String> emails = new ArrayList<>();
+    for (Account account : accounts) {
+      if (emailPattern.matcher(account.name).matches()) {
+        emails.add(account.name);
+      }
     }
-    promise.resolve("");
+    return emails;
   }
 }
