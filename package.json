@@ -10,8 +10,5 @@
   ],
   "author": "Weihan Zheng <zhengweihan.91@gmail.com>",
   "license": "MIT",
-  "homepage": "",
-  "dependencies": {
-    "react-native": "^0.40.0"
-  }
+  "homepage": ""
 }
