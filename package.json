@@ -1,7 +1,7 @@
 {
   "name": "react-native-android-account-manager",
   "description": "A react native android package to access accountManager.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "index.android.js",
   "keywords": [
     "react-component",
