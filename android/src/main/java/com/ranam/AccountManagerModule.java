@@ -33,6 +33,7 @@ public class AccountManagerModule extends ReactContextBaseJavaModule {
     for (Account account : accounts) {
       if (emailPattern.matcher(account.name).matches()) {
         promise.resolve(account.name);
+        return;
       }
     }
     promise.reject(null, "no email associated");
