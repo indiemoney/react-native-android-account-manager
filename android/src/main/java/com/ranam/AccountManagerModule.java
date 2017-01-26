@@ -27,15 +27,14 @@ public class AccountManagerModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public ArrayList<String> getEmails() {
+  public void getEmails(Promise promise) {
     Pattern emailPattern = Patterns.EMAIL_ADDRESS;
     Account[] accounts = mAccountManager.getAccounts();
-    ArrayList<String> emails = new ArrayList<>();
     for (Account account : accounts) {
       if (emailPattern.matcher(account.name).matches()) {
-        emails.add(account.name);
+        promise.resolve(account.name)
       }
     }
-    return emails;
+    promise.reject(null, "no emails");
   }
 }

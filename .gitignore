@@ -1,6 +1,6 @@
 # Android/IJ
 .DS_Store
-android/.idea/*
+.idea/*
 .idea/workspace.xml
 .idea/libraries
 .gradle
