@@ -1,7 +1,7 @@
 {
   "name": "react-native-android-account-manager",
   "description": "A react native android package to access accountManager.",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "main": "index.android.js",
   "keywords": [
     "react-component",
@@ -10,5 +10,9 @@
   ],
   "author": "Weihan Zheng <zhengweihan.91@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/indiemoney/react-native-android-account-manager.git"
+  },
   "homepage": ""
 }
